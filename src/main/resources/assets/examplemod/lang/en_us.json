@@ -1,3 +1,5 @@
 {
-  "block.examplemod.idiotblock" : "Idiot Block"
+  "block.examplemod.idiotblock" : "Idiot Block",
+  "_comment" : "Creative Tabs",
+  "itemGroup.examplemod" : "Test Tab"
 }

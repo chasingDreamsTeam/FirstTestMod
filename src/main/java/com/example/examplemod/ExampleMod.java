@@ -4,6 +4,7 @@ import com.example.examplemod.blocks.IdiotBlock;
 import com.example.examplemod.blocks.ModBlocks;
 import com.example.examplemod.setup.ClientProxy;
 import com.example.examplemod.setup.IProxy;
+import com.example.examplemod.setup.ModSetUp;
 import com.example.examplemod.setup.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -36,6 +37,8 @@ public class ExampleMod
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
+    public static ModSetUp modSetUp = new ModSetUp();
+
     public ExampleMod() {
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -55,6 +58,7 @@ public class ExampleMod
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        modSetUp.init();
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -97,8 +101,9 @@ public class ExampleMod
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent){
             // register a new block here
+            Item.Properties properties = new Item.Properties().tab(modSetUp.itemGroup);
             LOGGER.info("HELLO from Register Item");
-            itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.IDIOTBLOCK, new Item.Properties()).setRegistryName("idiotblock"));
+            itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.IDIOTBLOCK, properties).setRegistryName("idiotblock"));
             LOGGER.info("Register new item");
         }
     }
