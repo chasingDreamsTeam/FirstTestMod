@@ -1,6 +1,11 @@
 {
-  "parent" : "block/cube_all",
+  "parent" : "block/cube",
   "textures" : {
-    "all" : "examplemod:block/idiotblock"
+    "down" : "examplemod:block/idiotblock",
+    "up" : "examplemod:block/idiotblock",
+    "east" : "examplemod:block/idiotblock",
+    "west" : "examplemod:block/idiotblock",
+    "north" : "examplemod:block/idiotblock_front",
+    "south" : "examplemod:block/idiotblock"
   }
 }

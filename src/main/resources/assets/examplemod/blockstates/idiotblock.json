@@ -1,6 +1,11 @@
 {
   "variants" : {
-      "" : {"model" : "examplemod:block/idiotblock"}
+      "facing=north" : {"model" : "examplemod:block/idiotblock"},
+      "facing=south" : {"model" : "examplemod:block/idiotblock","y" :  180},
+      "facing=west" : {"model" : "examplemod:block/idiotblock","y" :  270},
+      "facing=east" : {"model" : "examplemod:block/idiotblock","y" :  90},
+      "facing=up" : {"model" : "examplemod:block/idiotblock","x" :  -90},
+      "facing=down" : {"model" : "examplemod:block/idiotblock", "x" :  90}
 
   }
 }
