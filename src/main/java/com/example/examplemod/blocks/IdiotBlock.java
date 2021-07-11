@@ -9,8 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -28,8 +30,6 @@ public class IdiotBlock extends Block {
                 .strength(2.0f)
                 .lightLevel(lightLevel)
         );
-
-
         this.setRegistryName("idiotblock");
 
     }
@@ -48,5 +48,16 @@ public class IdiotBlock extends Block {
     @Override
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder){
         builder.add(BlockStateProperties.FACING);
+    }
+
+    @Override
+    public boolean hasTileEntity(BlockState state) {
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new IdiotBlockTile();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import com.example.examplemod.blocks.IdiotBlock;
+import com.example.examplemod.blocks.IdiotBlockTile;
 import com.example.examplemod.blocks.ModBlocks;
 import com.example.examplemod.items.IdiotItem;
 import com.example.examplemod.setup.ClientProxy;
@@ -11,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.WeightedRandom;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -108,6 +110,12 @@ public class ExampleMod
             LOGGER.info("Register new item");
             LOGGER.info("Register IDIOTITEM");
             itemRegistryEvent.getRegistry().register(new IdiotItem());
+        }
+
+        @SubscribeEvent
+        public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> tileRegistryEvent){
+            LOGGER.info("HELLO from Register Tile Entity");
+            tileRegistryEvent.getRegistry().register(TileEntityType.Builder.of(IdiotBlockTile::new, ModBlocks.IDIOTBLOCK).build(null).setRegistryName("idiotblock"));
         }
     }
 }
