@@ -2,6 +2,7 @@ package com.example.examplemod;
 
 import com.example.examplemod.blocks.IdiotBlock;
 import com.example.examplemod.blocks.ModBlocks;
+import com.example.examplemod.items.IdiotItem;
 import com.example.examplemod.setup.ClientProxy;
 import com.example.examplemod.setup.IProxy;
 import com.example.examplemod.setup.ModSetUp;
@@ -105,6 +106,8 @@ public class ExampleMod
             LOGGER.info("HELLO from Register Item");
             itemRegistryEvent.getRegistry().register(new BlockItem(ModBlocks.IDIOTBLOCK, properties).setRegistryName("idiotblock"));
             LOGGER.info("Register new item");
+            LOGGER.info("Register IDIOTITEM");
+            itemRegistryEvent.getRegistry().register(new IdiotItem());
         }
     }
 }

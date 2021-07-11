@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "   ",
+    "xxx"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cobblestone"
+    },
+    "x":{
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "examplemod:idiotitem"
+  }
+}
